@@ -1,0 +1,82 @@
+\documentclass[12pt,article]{memoir}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Fonts
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{lmodern}          % triggers vector fonts ; _always_ useful
+\usepackage{textcomp}         % provides \textbullet, lacking from "URW classico"
+\usepackage[EULERGREEK]{sansmath}\sansmath % sans-serif math (including greeks)
+
+% GS-2015-05-07-12:01 back to classico, because now it works.
+\usepackage[sfdefault]{classico}
+
+
+
+\renewcommand{\textasciitilde}{\raisebox{-0.9ex}{\texttildelow}}
+\usepackage{microtype}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Layout
+
+\usepackage[ 
+margin=1.5cm,%  {l,r,t,b,h,v}margin...
+%includefoot,% uncomment this if the page number gets pushed beyond the bottom
+% showframe,
+]{geometry}
+
+\pagestyle{empty}
+
+
+\setlength{\parindent}{0pt} % default: 1em
+\setbeforeparaskip{2ex plus 1ex minus 2ex}       % default: 3.25+1-.2 ex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Utilities and misc
+\usepackage{url}
+
+\usepackage[
+maxnames=10,
+minnames=3,
+maxbibnames=10,
+minbibnames=8,
+maxcitenames=4,
+mincitenames=3,
+bibencoding=inputenc,
+backend=bibtex,
+sorting=ydnt,
+% sorting=ydnt,
+% sorting=none,
+% style=alphabetic,
+citestyle=alphabetic,
+% bibstyle=reading,
+bibstyle=bibnotes,
+abstract=true,% bibnotes style option
+]{biblatex}
+
+\addbibresource{database.bib}
+
+
+\tightlists
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document body
+
+\begin{document}
+
+% \cite{SSPx06}~~\fullcite*[minnames=10]{SSPx06}
+% \cite{DBMS13}
+% \cite{MSK13}~~\fullcite{MSK13}
+% \cite{NH12}~~\fullcite{NH12}
+% \cite{RL14}~~\fullcite{RL14}
+% \nocite{ERR05,GS06,SKGx07,DFPC08,FDLS08,Nak09,DRS09,WABx10,CHSC12,BCGL11,ZSFS11,BSD12,RT12,ZMPT12,Ran13}
+\input{citations.tex}
+%\nocite{RL14,NH12,MSK13}
+%\nocite{*}
+
+\renewcommand{\refname}{Bibnotes}
+\printbibliography
+
+\end{document}
