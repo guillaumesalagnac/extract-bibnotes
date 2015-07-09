@@ -56,7 +56,8 @@ def parsebibdata( text ):
     for string in strings:
         # (simplistic) sanity  check to avoid plenty  of exceptions in
         # by jabref file (which has both styles of bibtex comments)
-        if "Title" not in string and "Author" not in string:
+        if ( "Title" not in string and "Author" not in string and
+             "title" not in string and "author" not in string):
             # print "this is not a bibtex entry:",string
             continue
         try:
